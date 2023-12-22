@@ -1,0 +1,73 @@
+@use 'variables' as *;
+
+.hero {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px 20px 60px 20px;
+  margin-bottom: 40px;
+  .logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+    svg:first-child {
+      margin-right: 4px;
+    }
+  }
+  .cta {
+    display: flex;
+    align-items: center;
+    .info {
+      margin-left: 21px;
+    }
+    .text {
+      font-size: 50px;
+      font-weight: 800;
+      color: $white;
+      line-height: 1.2;
+      margin-bottom: 52px;
+      span {
+        color: #ff5c00;
+      }
+    }
+    .delivery {
+      color: $white;
+    }
+  }
+  &::before {
+    position: absolute;
+    content: '';
+    width: 2880px;
+    height: 2880px;
+    border-radius: 50%;
+    background-color: $secondary;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 0;
+  }
+  & > * {
+    z-index: 1;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero {
+    .cta {
+      flex-direction: column;
+      .info {
+        order: 0;
+        .text {
+          font-size: 30px;
+          line-height: 1.2;
+          text-align: center;
+        }
+      }
+      .image {
+        order: 1;
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+@use 'variables' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  .label {
+    margin-bottom: 4px;
+    font-size: 12px;
+    padding-left: 8px;
+  }
+}
+
+.input {
+  padding: 11px;
+  border-radius: 12px;
+  border: 1px solid $gray200;
+  background: $white;
+  font-size: 12px;
+  outline: none;
+  line-height: 16px;
+  transition: color 0.15s, border-color 0.15s;
+  width: 100%;
+  resize: vertical;
+  &::placeholder {
+    color: $gray300;
+  }
+  &:focus,
+  &:hover,
+  &[data-touched='true'][data-valid='true'] {
+    border-color: $main;
+  }
+  &[data-touched='true'][data-valid='false'] {
+    border-color: $red;
+    box-shadow: 0 0 3px $red;
+  }
+}
+
+textarea.input {
+  min-height: 40px;
+}

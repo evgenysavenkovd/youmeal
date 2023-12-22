@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button {
+  font-size: 14px;
+  padding: 4px 32px;
+  height: 32px;
+}
+
+.label {
+  font-size: 12px;
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.items {
+  width: 100%;
+  margin-bottom: 8px;
+  .item {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    .input {
+      font-size: 12px;
+      height: 32px;
+    }
+    .close {
+      height: 24px;
+      margin-left: 8px;
+      cursor: pointer;
+      svg * {
+        transition: 0.15s;
+      }
+      &:hover {
+        svg * {
+          fill: #f00;
+        }
+      }
+    }
+  }
+}

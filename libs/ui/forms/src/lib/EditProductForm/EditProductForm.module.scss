@@ -1,0 +1,12 @@
+.form {
+  & > * {
+    margin-bottom: 16px;
+    width: 100%;
+  }
+  .row {
+    display: flex;
+    & > * + * {
+      margin-left: 8px;
+    }
+  }
+}

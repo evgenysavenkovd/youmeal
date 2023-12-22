@@ -1,0 +1,47 @@
+@mixin layout($columns: 4) {
+  .basket {
+    width: calc((100% - 30px) / $columns * 1);
+  }
+  .store {
+    margin-left: 30px;
+    width: calc((100% - 30px) / $columns * ($columns - 1));
+  }
+}
+
+.main {
+  display: flex;
+  margin-top: 20px;
+  @include layout();
+  .title {
+    font-size: 40px;
+    line-height: 1.2;
+    margin-bottom: 24px;
+  }
+  .basket {
+    padding-top: 72px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .main {
+    @include layout(3);
+  }
+}
+
+@media (max-width: 768px) {
+  .main {
+    flex-direction: column;
+    .basket {
+      width: 100%;
+      padding-top: 0;
+    }
+    .store {
+      width: 100%;
+      margin-left: 0;
+    }
+    .title {
+      font-size: 28px;
+      margin-top: 30px;
+    }
+  }
+}

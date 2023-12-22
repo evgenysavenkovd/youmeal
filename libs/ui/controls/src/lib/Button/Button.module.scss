@@ -1,0 +1,41 @@
+@use 'variables' as *;
+
+.button {
+  border: none;
+  outline: none;
+  height: 40px;
+  background-color: $main;
+  border-radius: 12px;
+  padding: 11px 32px;
+  color: $white;
+  font-size: 16px;
+  line-height: 1;
+  transition: 0.15s;
+  cursor: pointer;
+  &:hover {
+    background-color: $secondary;
+  }
+  &:disabled {
+    background-color: $gray100;
+    cursor: default;
+    color: $gray400;
+  }
+  &.alt {
+    background-color: $white;
+    border: 1px solid $main;
+    color: $main;
+    &:hover {
+      background-color: $secondary;
+      border-color: $secondary;
+      color: $white;
+    }
+  }
+  &.gray {
+    background-color: $gray200;
+    color: $black;
+    &:hover {
+      background-color: $main;
+      color: $white;
+    }
+  }
+}

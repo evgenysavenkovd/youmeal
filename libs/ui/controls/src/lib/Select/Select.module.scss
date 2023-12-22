@@ -1,0 +1,57 @@
+@use 'variables' as *;
+
+.container {
+  position: relative;
+  .label {
+    font-size: 12px;
+    padding: 8px;
+  }
+  .view,
+  .dropdown {
+    border: 1px solid $gray200;
+    font-size: 12px;
+    padding: 11px;
+    font-size: 12px;
+    border-radius: 12px;
+  }
+  .view {
+    height: 40px;
+    cursor: pointer;
+    transition: 0.15s;
+    user-select: none;
+    &:hover {
+      border-color: $main;
+    }
+    &[data-placeholder='true'] {
+      color: $gray400;
+    }
+    &[data-placeholder='false'] {
+      border-color: $main;
+    }
+  }
+  .dropdown {
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    background-color: $white;
+    left: 0;
+    top: calc(100% + 8px);
+    animation: 0.15s dropdown-open;
+    .option {
+      padding: 4px 0;
+      cursor: pointer;
+      &:hover {
+        color: $main;
+      }
+    }
+  }
+}
+
+@keyframes dropdown-open {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}

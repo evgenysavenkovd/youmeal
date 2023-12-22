@@ -1,0 +1,47 @@
+@use 'variables' as *;
+
+.list {
+  overflow: hidden;
+  .wrapper {
+    display: flex;
+    width: 100%;
+  }
+  .item {
+    padding: 7px 13px;
+    display: flex;
+    align-items: center;
+    background-color: $white;
+    border-radius: 50px;
+    border: 1px solid $white;
+    transition: 0.15s;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+    img {
+      width: 24px;
+      height: 24px;
+      object-fit: cover;
+      object-position: center;
+      margin-right: 8px;
+    }
+    &:hover {
+      border-color: $main;
+    }
+    &[data-active='true'] {
+      background-color: $secondary;
+      border-color: $secondary;
+    }
+    & + .item {
+      margin-left: 24px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .list {
+    .item {
+      font-size: 12px;
+      padding: 7px;
+    }
+  }
+}

@@ -1,0 +1,30 @@
+@use 'variables' as *;
+
+.badge {
+  border-radius: 12px;
+  display: flex;
+  font-size: 12px;
+  overflow: hidden;
+  width: fit-content;
+  span {
+    padding: 2px 8px;
+  }
+  [data-active='false'] {
+    background-color: $gray300;
+    color: #fff;
+  }
+  [data-active='true'] {
+    &[data-status='completed'] {
+      background-color: #29ea3c;
+      color: #fff;
+    }
+    &[data-status='pending'] {
+      background-color: $secondary;
+      color: #fff;
+    }
+    &[data-status='canceled'] {
+      background-color: #ea5329;
+      color: #fff;
+    }
+  }
+}

@@ -1,0 +1,42 @@
+@use 'variables' as *;
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 0;
+}
+
+body {
+  background-color: $gray100;
+  & > * {
+    font-family: inherit;
+    color: $black;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.main-container {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  & > * {
+    flex-grow: 1;
+  }
+  .content-wrapper {
+    padding: 32px;
+    width: 100%;
+    overflow: hidden;
+    .content {
+      height: 100%;
+      background-color: $gray100;
+    }
+  }
+}

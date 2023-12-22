@@ -1,0 +1,38 @@
+@use 'variables' as *;
+
+.container {
+  .header {
+    margin-bottom: 24px;
+  }
+  .item,
+  .header {
+    border-radius: 12px;
+    border: 1px solid $gray200;
+    background-color: $white;
+    padding: 10px 16px;
+    display: flex;
+    .id {
+      width: 20%;
+    }
+    .count {
+      width: 20%;
+    }
+    .phone {
+      width: 30%;
+    }
+    .status {
+      width: 30%;
+    }
+    & + .item {
+      margin-top: 12px;
+    }
+    & > div {
+      & + div {
+        margin-left: 16px;
+      }
+    }
+  }
+  .item {
+    cursor: pointer;
+  }
+}

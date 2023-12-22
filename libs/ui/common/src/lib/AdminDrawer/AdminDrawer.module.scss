@@ -1,0 +1,28 @@
+@use 'variables' as *;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: #000a;
+  transition: 0.15s;
+  display: flex;
+  justify-content: flex-end;
+  .drawer {
+    width: 400px;
+    background-color: $white;
+    transition: 0.15s;
+    padding: 32px 16px;
+    overflow: auto;
+    .title {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+  }
+  &[data-open='false'] {
+    opacity: 0;
+    visibility: hidden;
+    .drawer {
+      transform: translateX(400px);
+    }
+  }
+}

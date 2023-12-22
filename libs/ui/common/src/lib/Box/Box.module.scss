@@ -1,0 +1,19 @@
+@use 'variables' as *;
+
+.box {
+  border-radius: 18px;
+  background-color: $white;
+  overflow: hidden;
+  &.small {
+    padding: 12px;
+  }
+  &.big {
+    padding: 24px 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .box {
+    border-radius: 12px;
+  }
+}
