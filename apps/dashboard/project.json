@@ -4,6 +4,12 @@
   "sourceRoot": "apps/dashboard",
   "projectType": "application",
   "targets": {
+    "production": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "cd dist/apps/dashboard && npx next start -p 3001"
+      }
+    },
     "build": {
       "executor": "@nx/next:build",
       "outputs": ["{options.outputPath}"],
