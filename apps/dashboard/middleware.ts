@@ -1,6 +1,5 @@
 import { ICredentials } from '@common/interfaces';
 import { cookiesKeys } from '@query';
-import axios from 'axios';
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function middleware(request: NextRequest) {
@@ -20,11 +19,11 @@ async function refreshMiddleware(
   const accessToken = request.cookies.get(cookiesKeys.accessToken)?.value;
   const refreshToken = request.cookies.get(cookiesKeys.refreshToken)?.value;
   if (accessToken && refreshToken) {
-    const { data: user } = await axios
-      .get(`${baseUrl}/users/me`, {
-        headers: { Authorization: `Bearer ${accessToken}` }
-      })
-      .catch(() => ({ data: undefined }));
+    const user = await fetch(`${baseUrl}/users/me`, {
+      headers: { Authorization: `Bearer ${accessToken}` }
+    })
+      .then((res) => res.json())
+      .catch(() => undefined);
     if (!user) {
       const credentials = await refresh(refreshToken);
       if (credentials) {
@@ -52,8 +51,11 @@ async function refreshMiddleware(
 async function refresh(
   refreshToken: string
 ): Promise<ICredentials | undefined> {
-  const { data: credentials } = await axios
-    .post<ICredentials>(`${baseUrl}/auth/refresh`, { refreshToken })
-    .catch(() => ({ data: undefined }));
+  const credentials = await fetch(`${baseUrl}/auth/refresh`, {
+    body: JSON.stringify({ refreshToken }),
+    headers: { 'content-type': 'application/json' }
+  })
+    .then((res) => res.json())
+    .catch(() => undefined);
   return credentials;
 }
