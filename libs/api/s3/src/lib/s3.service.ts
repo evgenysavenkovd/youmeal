@@ -6,6 +6,7 @@ import {
 import { HttpException, Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import * as mime from 'mime-types';
+import 'multer';
 import sharp from 'sharp';
 
 @Injectable()
